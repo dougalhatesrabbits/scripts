@@ -1,0 +1,18 @@
+[Unit]
+Description=Connect bluetooth speaker
+Wants=bluetooth.service
+After=bluetooth.service
+
+[Service]
+ExecStart=/usr/local/bin/connect_bluetooth_speaker.sh 14:C1:4E:AC:0D:A8 
+ExecStop=/usr/local/bin/disconnect_bluetooth_speaker.sh 14:C1:4E:AC:0D:A8
+ExecReload=/usr/local/bin/reconnect_bluetooth_speaker.sh 14:C1:4E:AC:0D:A8
+Type=oneshot
+#Restart=on-failure
+#RestartSec=10
+#killMode=process
+RemainAfterExit=True
+
+[Install]
+#WantedBy=default.target
+WantedBy=multi-user.target

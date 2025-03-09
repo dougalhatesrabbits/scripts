@@ -1,0 +1,14 @@
+#! /bin/bash
+
+# for btrfs
+
+sudo swapoff -a
+#sudo truncate -s 0 /swapfile
+#sudo chattr +C /swapfile
+#sudo btrfs property set /swapfile compression none
+sudo fallocate -l 17G /swapfile
+sudo mkswap /swapfile
+sudo chmod u=rw,go= /swapfile
+sudo swapon /swapfile
+
+#sudo bash -c "echo /swapfile none swap defaults 0 0 >> /etc/fstab"
