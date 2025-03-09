@@ -1,0 +1,1 @@
+journalctl -u tailscaled -n 100 -f --no-pager
